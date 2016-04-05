@@ -1,0 +1,26 @@
+# Documentation: https://roots.io/trellis/docs/local-development-setup/
+# `wordpress_sites` options: https://roots.io/trellis/docs/wordpress-sites
+# Define accompanying passwords/secrets in group_vars/development/vault.yml
+
+wordpress_sites:
+  blog.ricksmotorsportelectrics.com:
+    site_hosts:
+      - rickstips.dev
+    local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
+    admin_email: admin@rickstips.dev
+    initial_permalink_structure: /%postname%/ # applied only at time of WP install and when `site_install: true`
+    multisite:
+      enabled: false
+    ssl:
+      enabled: false
+      provider: self-signed
+    cache:
+      enabled: false
+          env:
+      disable_wp_cron: true
+      wp_home: http://rickstips.dev
+      wp_siteurl: http://rickstips.dev/wp
+      wp_env: development
+      db_name: rickstips_dev
+      db_user: rickstips_dbuser
+      db_import: ../site/mysql-dump-ricks_dev.sql #(option to import .sql on 'vagrant up') 
