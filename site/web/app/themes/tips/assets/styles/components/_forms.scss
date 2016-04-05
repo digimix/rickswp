@@ -1,0 +1,177 @@
+// Search form
+.search-form {
+  @extend .form-inline;
+}
+.search-form label {
+  font-weight: normal;
+  @extend .form-group;
+}
+.search-form .search-field {
+  @extend .form-control;
+}
+.search-form .search-submit {
+  @extend .btn;
+  @extend .btn-default;
+}
+
+$tl: 0.6s; // transition length
+
+.search-box {
+	transition: width $tl, border-radius $tl, background $tl, box-shadow $tl;
+	width: 30px;
+	height: 30px;
+	border-radius: 20px;
+	border: none;
+	cursor: pointer;
+	position: absolute;
+	right: 0;
+	z-index: 5;
+	//background: rgb(235, 235, 235);
+	& + label .search-icon, + label .search-icon {
+		color: $c-text;
+	}
+	&:hover {
+		//color: white;
+		//background: rgb(200, 200, 200);
+		//box-shadow: 0 0 0 2px lighten($brand-primary, 5%);
+		box-shadow: none !important;
+		& + label .search-icon, + label .search-icon {
+			color: $c-text;
+		}
+	}
+	&:focus {
+		transition: width $tl cubic-bezier(0,1.22,.66,1.39), border-radius $tl, background $tl;
+		border: none;outline: none;
+		box-shadow: none;
+		padding-left: 15px;
+		cursor: text;
+		border-radius: auto;
+		//background: rgb(235, 235, 235);
+		//color: black;
+		position: absolute;
+		right: 0;
+		z-index: 5;
+		width: 200px;
+		@media(min-width:$screen-sm-min) {
+			width: 250px;
+		}
+		& + label .search-icon, + label .search-icon {
+			color: $c-text;
+		}
+	}
+	&:not(:focus) {
+		text-indent:-5000px;
+	} // for more-graceful falling back (:not browsers likely support indent)
+}
+
+.onScroll {
+	.search-box {
+		& + label .search-icon, + label .search-icon {
+			z-index: 6;
+		}
+	}
+}
+
+.search-form {
+	//pointer-events:all;
+}
+.search-icon {
+	//position: absolute;
+	//left: -28px;
+    //top: 4px;
+	color: $c-text;
+	cursor: pointer;
+	//pointer-events:all;
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    top: 0;
+    line-height: 30px;
+}
+
+#search-submit {
+	position: relative;
+	left: -5000px;
+}
+
+
+.topHeader .header-search form.search-form .search-field {
+	max-width: 140px;
+}
+
+.header-search {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	@media(min-width:$screen-sm-min) {
+		padding-top: 20px;
+		padding-bottom: 0;
+	}
+	@media(min-width:$screen-md-min) {
+		margin-top: 86px;
+		margin-bottom: 50px;
+	}
+	form {
+		margin-right: 8px;
+	    position: relative;
+		float: right;
+		@media(min-width:$screen-sm-min) {
+		    margin-right: 15px;
+	    }
+		&.search-form {
+			label {
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				top:0;
+				right: 0;
+				text-align: center;
+/*
+				@media(max-width:$screen-xs-max) {
+					top: 0px;
+					position: absolute;
+					right: 0;
+				}
+*/
+				.search-icon {
+					//position: relative;
+					@media(max-width:$screen-xs-max) {
+						//left: -8px;
+					}
+				}
+			}
+			.search-field {
+				outline: none;
+				background: $c-module-background;
+				border-radius: 0;
+				border-color: $c-module-border;
+				color: $c-text;
+				padding: 3px 8px;
+				height: 30px;
+				&:hover, &:focus, &:active {
+					box-shadow: none !important;
+				}
+			    //width: 140px;
+/*
+				&::[placeholder] {
+					color: white;
+
+				}
+
+*/
+			}
+			.search-submit {
+				display: none;
+			}
+		}
+	}
+	button {
+		float: right;
+		border-radius: 0;
+
+	}
+	+ nav {
+		clear: right;
+	}
+}

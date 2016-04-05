@@ -1,0 +1,10 @@
+footer {
+	padding: 15px 0 7.5px;
+	@media(min-width:$screen-sm-min) {
+		padding: 40px 0 20px;
+	}
+	p {
+		font-size: .75em;
+		line-height: 1;
+	}
+}

@@ -1,0 +1,252 @@
+// Glyphicons font path
+$icon-font-path:        "../fonts/";
+
+// Grid settings
+$main-sm-columns:       12;
+$sidebar-sm-columns:    4;
+
+// =============================================
+// Brand Colors
+// =============================================
+
+// Usually not used directly in Sass partials.
+// Only used to define context-based color vars in this file.
+
+// Colors
+$brand-primary: #44C800;
+$c-primary: $brand-primary;
+$r-green-bright: #00CD00; //#00CD00
+$r-green: #51B555; // #44CC00;
+$r-green-alt: #44CC00;
+$r-dark: #2A2D34;
+$c-light: #E6E6E9;
+$r-light: $c-light;
+
+$c-blue: $r-green-bright;
+$c-green-bright: $r-green-bright;
+$c-green: $r-green;
+$c-green-shaded: #64D803;
+$c-pink: #D85378;
+$c-orange: #F3793B;
+$c-red: #CF5050;
+$c-yellow: #FFDD15;
+$c-black: #000000;
+$c-gray: #333333;
+
+// =============================================
+// Base Colors
+// =============================================
+
+// Text
+
+$c-text: #636363;
+$c-text-dark: #353535;
+$c-text-gray: #A0A0A0;
+$c-text-gray-light: #888;
+$c-text-white: #E6E6E6;
+
+// Interaction
+
+$c-action: $brand-primary;
+$c-stimulus: darken($brand-primary, 15%);
+$c-subtle: #A0A0A0;
+
+// Notifications
+
+$c-danger: #DF280A;
+$c-danger-background: #FAEBE7;
+
+$c-success: $c-green;
+$c-success-background: #EFF5EA;
+
+$c-warn: #E26703;
+$c-warn-background: #F9EBE6;
+
+$c-dark: #676157;
+
+// Global Elements
+
+$c-divider-border: #ECECEC;
+
+// =============================================
+// Element Colors
+// =============================================
+//Overlays
+$c-overlay: darken($c-dark,10%);
+
+// Buttons
+$c-button: $brand-primary;
+$c-button-hover: darken($brand-primary, 5%);
+$c-button-active: darken($brand-primary, 10%);
+
+// Secondary Buttons
+
+$c-button-secondary: #DDDDDD;
+$c-button-secondary-hover: darken(#DDDDDD, 5%);
+$c-button-secondary-active: darken(#DDDDDD, 10%);
+
+$c-button-subtle: #ECECEC;
+
+// Forms
+
+$c-input-border: #C0C0C0;
+$c-input-border-focus: $brand-primary;
+
+$c-input-placeholder: $c-text-gray;
+$c-input-text: $c-text;
+
+$c-fieldset-border: #CCCCCC;
+$c-fieldset-border-light: #EDEDED;
+
+// Headings
+
+$c-h1: $brand-primary;
+$c-h2: $c-text;
+$c-h3: $c-text;
+$c-h4: $c-text;
+$c-h5: $c-text;
+$c-h6: $c-text;
+
+// Link
+$c-link: $c-action;
+$c-link-hover: darken($c-action, 5%);
+$c-link-focus: $c-action;
+$c-link-active: darken($c-action, (5% / 2));
+
+// Module (generic)
+
+$c-module-background: #F4F4F4;
+$c-module-background-hover: shade($c-module-background, 3%);
+$c-module-background-secondary: #EAF8FF;
+$c-module-background-dark: #AAAAAA;
+$c-module-background-light: #f1f1f1;
+// This should be applied whenever the border is surrounding a white element and/or is directly showing on white.
+$c-module-border: #e5e5e5;
+// This should be applied whenever the border is wrapping an element with $c-module-background
+$c-module-border-light: #EDEDED;
+$c-module-border-dark: #777777;
+$c-module-border-highlight: $brand-primary;
+
+
+// Table
+
+$c-table-background: #F4F4F4;
+$c-table-border: #C0C0C0;
+
+$c-table-zebra-odd: #F8F7F5;
+$c-table-zebra-even: #EEEDED;
+
+// Tabs
+
+$c-tabs-background: #F0F0F0;
+
+// Email
+$c-email-background: #EBEBEB;
+$c-email-background-secondary: #E1F0F8;
+$c-email-border: #C3CED4;
+$c-email-action: #3696C2;
+$c-email-cell: #F1F1F1;
+$c-email-highlighted-background: #FFFDD9;
+$c-email-highlighted-border: #FFF74C;
+
+
+// =============================================
+// Gradients
+// =============================================
+
+$g-primary: linear-gradient(90deg, darken(#00b400, 4%), $c-green-shaded);
+
+// =============================================
+// Typography
+// =============================================
+
+// Google Web Font stylesheet is included via layout XML
+
+// Font Stacks
+
+$f-stack-sans: 'Open Sans','NewsGothic','Helvetica Neue', Verdana, Arial, sans-serif;
+$f-stack-serif: 'Open Sans','NewsGothic', Georgia, Times, 'Times New Roman', serif;
+$f-stack-special: 'Open Sans','NewsGothic','news-gothic-std', 'nimbus-sans-condensed', 'Helvetica Neue', Verdana, Arial, sans-serif;
+$f-stack-icon: 'FontAwesome';
+$f-stack-default: $f-stack-sans;
+
+$font_headline: $f-stack-default;
+$font_regular: $f-stack-default;
+$font_cond: $f-stack-default;
+
+// Font Sizes
+
+$f-size-xxl: 18px;
+$f-size-xl: 16px;
+$f-size-l: 15px;
+
+$f-size: 14px;
+
+$f-size-s: 13px;
+$f-size-xs: 12px;
+$f-size-xxs: 11px;
+
+$f-space-special: .025em;
+
+// Base Measures
+
+$b-line-height: 1.5;
+$b-margin-bottom: 1.5em;
+
+
+// =============================================
+// Defaults
+// =============================================
+
+// Border Radius
+
+$default-border-radius: 5px;
+
+// Transition
+
+$default-transition-property: all;
+$default-transition-duration: 200ms;
+$default-transition-function: linear;
+$default-transition-delay: 0;
+
+
+// =============================================
+// Base Values
+// =============================================
+
+// Spacing
+
+$gap: 10px;
+
+$trim: 30px;
+// This will get applied on viewports smaller than 480px
+$trim-small: 15px;
+
+// Padding that will get applied to content areas
+$box-spacing-large: 20px;
+
+// Standard padding around box elements such as banner messages, etc
+$box-spacing: 10px;
+
+// Standard spacing between elements within a box, such as "Add to cart", "Price box", etc
+$element-spacing: 7px;
+
+// Dimensions
+
+$max-content-width: 100%; //1200px
+$max-container-width: 100%; // $trim + $max-content-width + $trim
+$max-std-formatted-width: 50em;
+
+@font-face {
+	font-family: 'NewsGothic';
+	src: url('../fonts/News-Gothic-Std-Bold.ttf') format('truetype'); /* Safari, Android, iOS */
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'NewsGothic';
+	src: url('../fonts/News-Gothic-Light.ttf') format('truetype'); /* Safari, Android, iOS */
+	font-weight: 300;
+	font-style: light;
+}

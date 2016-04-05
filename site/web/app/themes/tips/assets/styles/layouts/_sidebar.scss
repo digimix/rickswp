@@ -1,0 +1,283 @@
+section.widget_recent_entries,
+section.widget_most_shared,
+section.widget_most_shared_post_widget,
+section.widget.popular-posts {
+	ul {
+		@extend .nav;
+		@extend .nav-pills;
+		@extend .nav-stacked;
+		>li {
+			margin-bottom: 5px;
+			>a {
+				background-color: $c-module-background;
+				color: $c-primary;
+				font-weight: 600;
+				&:hover, &:focus {
+					background-color: darken($c-module-background, 10%);
+				}
+			}
+		}
+	}
+}
+
+.widget_destination_info {
+	.btn.btn-primary {
+		@media(max-width:$screen-xs-max) {
+			width: 100%;
+		}
+	}
+	a {
+		&.take-me-here {
+			@extend .btn;
+			@extend .btn-light-blue;
+			margin-bottom: 5px;
+			width: 100%;
+			@media (min-width:$screen-sm-min) {
+				margin-bottom: 15px;
+				width: auto;
+			}
+		}
+		&.airport-info {
+			@extend .btn;
+			@extend .btn-light-blue;
+			width: 100%;
+			color: white;
+			clear: both;
+			&:hover {
+				color: white;
+			}
+			@media (min-width:$screen-sm-min) {
+				display: block;
+				color: $c-primary;
+				padding: 6px 0;
+				background: transparent;
+				border-color: transparent;
+				width: inherit;
+				font-weight: 600;
+				text-align: left;
+				outline: none !important;
+				box-shadow: none !important;
+				&:hover, &:focus {
+					background: transparent !important;
+					border-color: transparent;
+					color: darken($c-primary, 5%) !important;
+
+				}
+
+			}
+		}
+	}
+}
+
+section.widget_most_shared,
+section.widget_most_shared_post_widget,
+section.widget.popular-posts {
+	ul {
+		>li {
+			>a {
+				padding: 3px 10px 4px 0px;
+				height: 45px;
+				overflow: hidden;
+				span {
+					line-height: 36px;
+					&.num {
+						text-align: center;
+						width: 30px;
+						display: inline-block;
+					}
+				}
+				img {
+					margin-left: 4px;
+					margin-right: 6px;
+				}
+			}
+		}
+	}
+}
+
+$control-height: auto;
+$control-width: 20%;
+
+aside.sidebar {
+	margin-top: 20px;
+	@media(min-width:$screen-sm-min) {
+		margin-top: 40px;
+	}
+	.widget {
+		h3 {
+			text-transform: uppercase;
+			font-size: 1em;
+			font-weight: bold;
+		    margin-top: 30px;
+		}
+		&:first-child {
+			h3 {
+			    margin-top: 0;
+			    @media(min-width:$screen-sm-min) {
+				    margin-top: 0;
+			    }
+			}
+		}
+	}
+	.widget-olapic, .widget_olapic_gallery {
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			> li {
+				float: left;
+				width: 32%;
+				display: block;
+				position: relative;
+				margin-bottom: 2%;
+				&:first-child {
+					width: 66%;
+					margin-right: 2%;
+				}
+				figure {
+				    @include aspect-ratio(1, 1);
+					height: inherit;
+					//height: $control-height;
+					height: auto;
+				    position: relative;
+				    overflow: hidden;
+				    width: 100%;
+					.image-wrapper {
+						position: absolute;
+						top:0;
+						bottom: 0;
+						right: 0;
+						left: 0;
+						display: block;
+						width: 100%;
+						height: 100%;
+						background-position: center center;
+						background-size: cover;
+						//transition: background-position .5s ease-in-out;
+						//transform: translate3d(0,0,0);
+						&:hover {
+							//background-position: right center;
+							//transform: translate3d(0,0,0);
+						}
+					}
+				}
+
+			}
+		}
+	}
+	// wp twitter feed overrides
+	ul {
+	    &.light.fetched_tweets {
+		    > li.tweets_avatar {
+			    background: $c-module-background;
+				background-color: $c-module-background;
+			    color: $c-text;
+			    padding: 3px 10px !important;
+			    border-radius: 4px;
+			    box-shadow: none !important;
+			    .tweet_data {
+				    font-family: $font_regular;
+				    color:$c-text !important;
+				    font-size: 1.15em;
+				    margin-bottom: 5px;
+				    a {
+					    color: $c-primary !important;
+					    text-decoration: none !important;
+					    @include hoverUnderline($c-primary);
+				    }
+			    }
+			    div.times {
+				    display: none;
+			    }
+		    }
+	    }
+	}
+}
+
+.weather-forecast,
+.widget_destination_forecast {
+	&.widget {
+		margin-bottom: 30px;
+		h3 {
+			margin-bottom: 0;
+		}
+	}
+	.temperature {
+		font-size: 1.8em;
+		font-weight:bold;
+		color: $c-primary;
+		margin-bottom: 0;
+	}
+	.forecast-wrapper {
+		display: flex;
+		background-color: $c-module-background;
+		margin-top: 15px;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	figure {
+		&.forecast {
+			flex: 1;
+			text-align: center;
+			time {
+				color:$c-primary;
+				font-size:1em;
+				text-transform: uppercase;
+				font-weight: bold;
+				border-bottom: 1px solid $c-module-border;
+				width:60%;
+				display: block;
+				margin: auto;
+			}
+		}
+	}
+}
+
+.alert-weather {
+    background: url('../images/weatherSpritesheet.png') no-repeat;
+    width: 50px;
+    height: 40px;
+    margin-left: 0;
+    display: inline-block;
+	&.cloudyW,
+	&.mostly-cloudy,
+	&.clear-ish,
+	&.cloudy {
+        background-position: -210px -24px;
+	}
+
+	&.fogW,
+	&.fog {
+        background-position: -210px -59px;
+	}
+
+	&.rainW,
+	&.freezing_rainW,
+	&.rain {
+        background-position: -210px -99px;
+	}
+
+	&.snowW,
+	&.snow {
+        background-position: -210px -139px;
+	}
+
+	&.thunderstormsW,
+	&.thunder {
+        background-position: -210px -176px;
+	}
+
+	&.sunW,
+	&.fairW,
+	&.sunny {
+        background-position: -212px -215px;
+	}
+	&.suncloudW,
+	&.clear-sunny,
+	&.partly-cloudy {
+        background-position: -212px -251px;
+	}
+	&.windyW {
+        background-position: -216px -289px;
+	}
+}

@@ -17,3 +17,11 @@ wordpress_sites:
       provider: letsencrypt
     cache:
       enabled: false
+    env:      
+	  disable_wp_cron: false
+      wp_home: http://blog.ricksmotorsportelectrics.com
+      wp_siteurl: http://blog.ricksmotorsportelectrics.com/wp
+      wp_env: production
+      db_name: rmetips001_prod
+      db_user: rmetips001_dbuser
+    db_import: ../site/ricks_dev.sql #(option to import .sql on 'vagrant up') 

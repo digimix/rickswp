@@ -1,0 +1,124 @@
+// Mixins
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+$buttonColors: primary $brand-primary, light-blue $c-light;
+
+@each $className in $buttonColors {
+	.btn.btn-#{nth($className, 1)} {
+		$buttonColor: nth($className, 2);
+		border-bottom: 0;
+		background: $buttonColor;
+		text-transform: uppercase;
+		color: white;
+		&:hover, &:focus {
+			background: lighten($buttonColor, 10%);
+			color: white !important;
+		}
+	}
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@mixin word-wrap() {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	-ms-word-break: break-all;
+	word-break: break-word;
+	-ms-hyphens: auto;
+	-moz-hyphens: auto;
+	-webkit-hyphens: auto;
+	hyphens: auto;
+}
+
+$shadedColors: white #fff, light $c-light, grey lighten($c-text, 5%), dark $c-text, black #5D5D5D;
+
+@each $className in $shadedColors {
+	.shaded-#{nth($className, 1)} {
+		$shadedColor: nth($className, 2);
+		//border-bottom: 3px darken($shadedColor, 25%) solid;
+		background: $shadedColor;
+	}
+}
+
+
+@mixin hoverUnderline ($param: $c-link) {
+	position: relative;
+	text-decoration: none;
+	&::after {
+	    position: absolute;
+	    top: 100%;
+	    left: 0;
+	    width: 100%;
+	    height: 1px;
+	    background: lighten($param, 5%);
+	    content: '';
+	    opacity: 0;
+	    -webkit-transition: height 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+	    -moz-transition: height 0.3s, opacity 0.3s, -moz-transform 0.3s;
+	    transition: height 0.3s, opacity 0.3s, transform 0.3s;
+	    -webkit-transform: translateY(-10px);
+	    -moz-transform: translateY(-10px);
+	    transform: translateY(-10px);
+	}
+	&:hover {
+		&::after {
+			height: 1px;
+			opacity: 1;
+			-webkit-transform: translateY(0px);
+			-moz-transform: translateY(0px);
+			transform: translateY(0px);
+		}
+	}
+}
+
+$socialProfiles: pinterest "\f0d2", facebook "\f09a", google-plus "\f0d5", twitter "\f099", instagram "\f16d", mail "\f0e0";
+
+@each $className in $socialProfiles {
+	.menu-#{nth($className, 1)} {
+		$socialProfile: nth($className, 2);
+		float: none !important;
+		display: inline-block !important;
+		> a {
+			background: transparent;
+			background-color: transparent;
+			border-radius: 4px;
+			margin-bottom: 0;
+		    padding: 0;
+			span {
+				display: none;
+			}
+			&:before {
+				font-family: "FontAwesome";
+				color: white;
+				content: $socialProfile;
+				font-size: 1em;
+			}
+			&:hover {
+				background: transparent;
+				background-color: transparent;
+				&:before {
+					color: $brand-primary;
+				}
+			}
+		}
+	}
+}

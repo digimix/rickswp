@@ -1,0 +1,274 @@
+.entry-title,
+.widget-title {
+	font-family: $font_headline;
+}
+
+.entry-content-asset {
+	iframe {
+		max-width: 100%;
+	}
+}
+
+.search-results {
+	article,
+	article.type-post,
+	article.type-listicle {
+		margin-bottom: 30px;
+		border-bottom: 0;
+		.content-wrap {
+			p {
+				max-height: 54px;
+				overflow: hidden;
+			}
+		}
+		h2.entry-title {
+			font-size: 1.2em;
+			@media(min-width:$screen-sm-min) {
+				font-size: 1.5em;
+			}
+
+		}
+		figure.image-wrap {
+			margin-top: 0;
+			img, .wp-post-image {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.listicle-list {
+	list-style: none;
+	padding-left: 0;
+	.entry-title {
+		color: $c-primary;
+	}
+	.cols {
+		.image-wrap {
+			@media(max-width:$screen-sm-max) {
+				flex: .5;
+			}
+		    margin-top: 0;
+		    padding-right: 2.5%;
+		}
+		.content-wrap {
+			@media(min-width:$screen-sm-min) {
+			    flex: 1.25;
+			}
+			p {
+			    font-size: 1.2em;
+			    line-height: 1.5em;
+		    }
+		}
+	}
+}
+
+.related-posts {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	article,
+	article.type-post,
+	article.type-listicle {
+		//flex: 1;
+		width: 32%;
+		border-bottom: none;
+		figure {
+			position: relative;
+			a {
+			}
+			.wp-post-image {
+				margin-bottom: 0;
+			}
+		}
+		header {
+			position: relative;
+			.entry-title {
+				font-size: 1.3em;
+			}
+		}
+		.entry-summary {
+			.excerpt {
+				@media(max-width:$screen-sm-max) {
+					display: none;
+				}
+			}
+		}
+		footer {
+
+		}
+		&.format-video {
+			figure a {
+				&::after {
+					content: "\f04b";
+					font-family: 'FontAwesome';
+					z-index: 1;
+					position: absolute;
+					text-align: center;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					border-radius: 50%;
+					padding: 0px;
+					border: 2px solid #fff;
+					line-height: 40px;
+					color: white;
+					width: 40px;
+					height: 40px;
+					box-shadow: 1px 1px 1px #999;
+					text-shadow: 1px 1px 1px #999;
+				}
+				&:hover {
+					&::after {
+						box-shadow: 1px 1px 1px #333;
+						text-shadow: 1px 1px 1px #333;
+					}
+				}
+			}
+		}
+	}
+}
+
+section.quote {
+	&.quote-img {
+		@extend .flexbox;
+	    justify-content: space-between;
+	    @media(max-width:$screen-sm-max) {
+		    display: block;
+	    }
+	    blockquote, .image-wrapper {
+		    //flex: 1;
+	    }
+	    blockquote {
+		    width: 100%;
+		    @media(min-width:$screen-md-min) {
+			    width: 55%;
+		    }
+	    }
+	    .image-wrapper {
+		    @media(max-width:$screen-sm-max) {
+			    display: block;
+			    height: 180px;
+			    margin-top: 15px;
+		    }
+	        border-radius: 5px;
+		    background-position: center center !important;
+		    background-size: cover !important;
+		    width: 100%;
+		    @media(min-width:$screen-md-min) {
+			    width: 43%;
+		    }
+	    }
+	}
+}
+
+.entry-content {
+	p {
+		line-height: 1.5em;
+		font-size: 1.063em;
+		&:first-child {
+			font-size: 1.25em;
+		}
+		a:not(.btn) {
+			@include hoverUnderline($c-primary);
+		}
+	}
+	blockquote {
+		p {
+			font-size: 2.5em !important;
+			line-height: 1.5;
+			margin: 0;
+		}
+	}
+}
+
+article {
+	footer {
+		p {
+			font-size: .9em;
+		}
+	}
+	.entry-title {
+		a {
+
+		}
+	}
+	&.type-post,
+	&.type-listicle {
+		border-bottom: 1px solid lighten($c-text, 30%);
+		margin-bottom: 20px;
+		.wp-post-image {
+			width: 100%;
+			height: auto;
+			margin-bottom: 15px;
+		}
+		.entry-title {
+		    letter-spacing: -1.5px;
+		    font-weight: light;
+		    text-decoration: none !important;
+		}
+		.action-items {
+			margin-bottom: 20px;
+			div {
+				margin-bottom: 15px;
+			}
+			.hashtags {
+				clear: both;
+			}
+		}
+		.entry-summary {
+			p {
+				@include word-wrap();
+			}
+		}
+		&.single-post {
+			border-bottom: 0;
+			margin-bottom: 0;
+			section.main {
+				//margin-bottom: 20px;
+				margin-top: 20px;
+				@media(min-width:$screen-sm-min) {
+					margin-top: 40px;
+				}
+				footer {
+				    clear: both;
+					padding-bottom: 55px;
+					border-bottom: 1px solid $c-text;
+					margin-bottom: 15px;
+					@media(min-width:$screen-sm-min) {
+						margin-bottom: 40px;
+					}
+				}
+				section.flexbox, section.cols {
+					margin: 20px 0;
+				}
+				.col,.one-half {
+					blockquote {
+						margin: 0;
+					}
+					img {
+						width: 100%;
+					}
+				}
+				blockquote footer {
+					margin-bottom: 0;
+					border-bottom: none;
+				    padding: 20px 0;
+				}
+				.entry-content {
+					img {
+						max-width: 100%;
+						height: auto;
+						&.alignnone {
+							width: 100%;
+						}
+					}
+				}
+			}
+		}
+	}
+}

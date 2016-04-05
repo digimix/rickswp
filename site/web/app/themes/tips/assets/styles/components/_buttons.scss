@@ -1,0 +1,118 @@
+.read-more {
+	color: $c-primary;
+	text-transform: uppercase;
+	font-weight: bold;
+	letter-spacing: -1px;
+	font-family: $font_headline;
+}
+
+a.read-more {
+	@include hoverUnderline($c-primary);
+}
+
+.share {
+	@extend .list-inline;
+	float: right;
+	list-style: none;
+	padding: 0;
+	//margin-bottom: 0;
+	> li {
+		margin-bottom: 0;
+		padding: 0;
+		> a {
+			.fa {
+				@extend .fa-fw;
+				background: darken($c-primary, 5%);
+				color: white;
+				height: 1.8em;
+				line-height: 1.8em;
+				width: 1.8em;
+				text-align: center;
+				border-radius: 3px;
+				transition: all ease .15s;
+			}
+			&:hover {
+				.fa {
+					background: $c-primary;
+				}
+			}
+		}
+	}
+}
+
+.nav-links {
+	display: table;
+	width: 100%;
+	a {
+		color: $c-primary;
+		text-transform: uppercase;
+		font-weight: 700;
+		letter-spacing: -1px;
+	}
+	.nav-previous {
+		position: relative;
+		float: left;
+		&:before {
+			display: inline-block;
+			content: "\f053";
+			font-family: "FontAwesome";
+	        transform: translateY(-50%) translateX(-50%);
+	        position: absolute;
+            transition: transform 0.3s, opacity 0.3s;
+            opacity: 0;
+            top: 50%;
+            font-size: .85em;
+            line-height: .85em;
+		}
+		&:hover {
+			&:before {
+			    transform: translateY(-50%) translateX(0);
+			    opacity: 1;
+			}
+		}
+		a {
+			display: inline-block;
+			transform: translateY(0) translateX(0);
+			transition: transform 0.3s;
+			&:hover {
+			    transform: translateY(0) translateX(20px);
+			}
+		}
+		@media(min-width:$screen-sm-min) {
+			float: left;
+		}
+	}
+	.nav-next {
+		position: relative;
+		float: right;
+		&:after {
+			display: inline-block;
+			content: "\f054";
+			font-family: "FontAwesome";
+	        transform: translateY(50%) translateX(0);
+	        position: absolute;
+            transition: transform 0.3s, opacity 0.3s;
+            opacity: 0;
+            top: 0;
+            font-size: .85em;
+            line-height: .85em;
+		}
+		&:hover {
+			&:after {
+			    transform: translateY(50%) translateX(-50%);
+			    opacity: 1;
+			}
+		}
+		a {
+			display: inline-block;
+			transform: translateY(0) translateX(0);
+			transition: transform 0.3s;
+			&:hover {
+			    transform: translateY(0) translateX(-20px);
+			}
+		}
+		@media(min-width:$screen-sm-min) {
+			float: right;
+		}
+	}
+}

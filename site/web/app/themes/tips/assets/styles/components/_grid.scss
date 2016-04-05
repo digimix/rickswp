@@ -1,0 +1,407 @@
+// Grid system
+.main {
+	@include make-sm-column($main-sm-columns);
+	&.buffer {
+		margin-top: 20px;
+		@media(min-width:$screen-sm-min) {
+			margin-top: 40px;
+		}
+	}
+	.sidebar-primary & {
+		@include make-sm-column($main-sm-columns - $sidebar-sm-columns);
+	}
+}
+.sidebar {
+  @include make-sm-column($sidebar-sm-columns);
+}
+
+.flexbox {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	overflow: hidden;
+	.col {
+		flex: 1;
+	    margin-right: 20px;
+	    overflow: hidden;
+	    &:last-child {
+		    margin-right: 0;
+	    }
+	}
+	> blockquote {
+		margin: 0;
+	}
+}
+
+.cols {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	margin: auto;
+	//max-width: 1440px;
+	position: relative;
+	>* {
+		-webkit-box-flex: 1;
+		-webkit-flex: 1;
+		-moz-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+	}
+	.image-wrap {
+		position: relative;
+		margin: auto;
+	}
+	figcaption, .content-wrap {
+		z-index: 1;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+$control-height: auto;
+$control-width: 20%;
+
+
+figcaption.bar {
+	background: $c-primary;
+	color: white;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	.entry-title {
+		margin: 0;
+		color: white;
+		padding: 6px 15px;
+		font-size: 2em;
+		line-height: 1;
+		font-weight: 200;
+		-webkit-font-smoothing: antialiased;
+		//letter-spacing: -2px;
+		font-family: $font_cond;
+		@media(min-width:$screen-sm-min) {
+			font-size: 2.3em;
+			line-height: 1;
+		}
+	}
+}
+
+
+@mixin caption-bar($height: 60px, $readmore: 'View all posts', $transition-delay: .55s) {
+	a.wrap {
+	    display: block;
+	    position: absolute;
+	    width: 100%;
+	    height: 100%;
+	    top: 0;
+		>figcaption {
+			height: auto;
+			position: absolute;
+			bottom: 0;
+			background: linear-gradient( 45deg, rgba(black, .75), rgba(black, .55) );
+			//transform: translate3d(0,10%,0);
+			transition: background $transition-delay ease;
+			right: 0;
+			left: 0;
+		    padding: 0 10px;
+		    overflow: hidden;
+/*
+			&:before {
+			    transition: background .2s linear;
+			    position: absolute;
+			    height: 500%;
+			    width: 500%;
+			    left: 0;
+			    background: #212328;
+			    opacity: .8;
+			    content: '';
+			    transform: rotate(25deg);
+			}
+*/
+			.entry-title {
+				margin-top:0;
+				margin-bottom: 10px;
+				padding-top: 10px;
+				position: relative;
+				color: white;
+				font-family: $font_cond;
+				font-weight: bold;
+				letter-spacing: -1px;
+				text-transform: uppercase;
+				text-rendering: optimizeLegibility;
+				line-height: 1;
+				@media(min-width:$screen-sm-min) {
+					font-size: 1.5em;
+				}
+				&:after {
+					position: absolute;
+					top: 100%;
+					left: 0;
+					right: 0;
+					height: 2px;
+					background: #fff;
+					content: '';
+					transform: translate3d(0,40px,0);
+					opacity: 0;
+					transition: opacity $transition-delay,transform $transition-delay;
+					transform-style: preserve-3d;
+				}
+			}
+			.summary {
+				margin-top: 0;
+				color: white;
+				position: relative;
+				max-height: 0;
+				overflow: hidden;
+				//transition: max-height $transition-delay ease;
+				//transform: translate3d(0,100%,0);
+				//transition: transform $transition-delay ease;
+				transform: translate3d(0,50px,0);
+				transition: all 1s -.25s ease-out;
+				p {
+					font-size: 1em;
+					color: white;
+				}
+			}
+		}
+
+		&:hover {
+			>figcaption {
+				background: rgba($c-primary, .85);
+				.entry-title {
+					@media(min-width:$screen-sm-min) {
+						margin-bottom: 10px;
+						&:after {
+							opacity: 1;
+							transform: translate3d(0,10px,0);
+						}
+					}
+				}
+				.summary {
+					@media(min-width:$screen-sm-min) {
+						max-height: 110px;
+						margin-top: 25px;
+						transition: all $transition-delay ease-in;
+						transform: translate3d(0,0,0);
+					}
+				}
+			}
+		}
+
+	}
+}
+
+
+
+ul.mosaic {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	>li {
+		float: left;
+		width: $control-width;
+		display: block;
+		position: relative;
+		margin: 0;
+		>figure {
+			height: inherit;
+			//height: $control-height;
+			height: auto;
+		    position: relative;
+		    overflow: hidden;
+		    width: 100%;
+		    @include aspect-ratio(1, 1);
+		    @include caption-bar();
+		    a {
+			    color: white;
+			    text-decoration: none;
+			    display: block;
+			    width: 100%;
+			    height: 100%;
+		    }
+		}
+		&:first-child {
+			width: $control-width * 5;
+			@media(min-width:$screen-md-min) {
+			    width: $control-width * 2;
+			    //height: $control-height * 2;
+			    //height: $control-width * 2;
+			}
+		    >figure {
+			    height: inherit;
+			    @include aspect-ratio(2, 1);
+			    @media(min-width:$screen-md-min) {
+				    @include aspect-ratio(1, 1);
+			    }
+		    }
+
+		}
+		&:nth-child(2) {
+			width: 50%;
+			//width: $control-width * 3;
+			height: auto;
+		    @media(min-width:$screen-md-min) {
+				width: $control-width * 3;
+			}
+		    >figure {
+			    height: inherit;
+				// @include aspect-ratio(2, 1.3334);
+				@include aspect-ratio(1, 1);
+			    @media(min-width:$screen-md-min) {
+				    @include aspect-ratio(3, 1);
+			    }
+		    }
+		}
+		&:nth-child(3) {
+			width: 50%;
+			height: auto;
+		    @media(min-width:$screen-md-min) {
+				width: 30%;
+			}
+		    >figure {
+			    height: inherit;
+			    // @include aspect-ratio(16, 10.659);
+			    @include aspect-ratio(1, 1);
+			    @media(min-width:$screen-md-min) {
+				    @include aspect-ratio(3, 2);
+			    }
+		    }
+		}
+		&:nth-child(4) {
+			width: $control-width * 5;
+			height: auto;
+		    @media(min-width:$screen-md-min) {
+				width: 30%;
+			}
+		    >figure {
+			    height: inherit;
+			    // @include aspect-ratio(16, 10.659);
+			    //@include aspect-ratio(3, 1);
+			    @include aspect-ratio(2, 1);
+			    @media(min-width:$screen-md-min) {
+				    @include aspect-ratio(3, 2);
+			    }
+		    }
+		}
+
+	}
+}
+
+$control-width-2: 33.3333%;
+
+ul.destinations {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	width: 100%;
+	>li {
+		float: left;
+		display: block;
+		position: relative;
+		margin: 0;
+		width: 50%;
+		@media (min-width:$screen-sm-min) {
+			width: $control-width-2;
+		}
+		>figure {
+			height: inherit;
+			//height: $control-height;
+			height: auto;
+		    position: relative;
+		    overflow: hidden;
+		    width: 100%;
+		    @include aspect-ratio(33, 25);
+		    @include caption-bar();
+		}
+		&:first-child {
+		    width: 100%;
+			@media (min-width:$screen-sm-min) {
+				width: $control-width-2 * 2;
+			}
+		    >figure {
+			    height: inherit;
+			    @include aspect-ratio(33, 12.5);
+		    }
+		}
+	}
+}
+
+
+ul.featured-categories {
+	display: flex;
+	list-style: none;
+	justify-content: space-between !important;
+	flex-wrap: wrap;
+	flex-flow: row wrap;
+	//@extend .max-col-4;
+	margin-bottom: 0 !important;
+	>li {
+		margin-left: 0 !important;
+		list-style: none;
+		margin-bottom: 2%;
+		flex-basis: 100%;
+		max-width: 100%;
+		@media(min-width:$screen-sm-min) {
+			flex-basis: 49%;
+			max-width: 49%;
+		}
+		@media(min-width:$screen-md-min) {
+			flex-basis: 32.333%;
+			max-width: 32.333%;
+		}
+		figure {
+			&:hover {
+				.img-wrapper {
+					opacity: .9;
+				}
+			}
+			.img-wrapper {
+				opacity: 1;
+				height: 250px;
+				background-size: cover !important;
+				width: 100%;
+				transition: .125s ease opacity;
+			}
+			position: relative;
+			img {
+				width: 100%;
+				height: auto;
+			}
+			figcaption {
+				background: black;
+				color: white;
+				padding: 10px;
+				text-transform: uppercase;
+				letter-spacing: -.25px;
+				position: absolute;
+				z-index: 5;
+				display: block;
+				bottom: 15px;
+				span {
+					font-weight: bold;
+					&:before {
+						content: "Shop";
+						display: inline-block;
+					    margin-right: 6px;
+						color: #03A200;
+						font-weight: lighter;
+					}
+				}
+			}
+		}
+		&:nth-child(3) {
+			@media(max-width:$screen-sm-max) {
+				flex-basis: 100%;
+				max-width: 100%;
+			}
+		}
+
+		&:nth-child(1), &:nth-child(2) {
+			@media(min-width:$screen-md-min) {
+				flex-basis: 49%;
+				max-width: 49%;
+			}
+		}
+	}
+}
